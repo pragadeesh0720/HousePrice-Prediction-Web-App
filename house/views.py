@@ -14,7 +14,7 @@ def predict(request):
     return render(request, 'predict.html')
 
 def solution(request):
-    data = pd.read_csv(r"D:\Dataset\USA_Housing.csv")
+    data = pd.read_csv(r"D:\Dataset\USA_Housing.csv") #set the path of Dataset on your computer
     data = data.drop(['Address'],axis=1)
     x = data.drop('Price',axis=1) #contains all columns except price
     y = data['Price']
@@ -22,12 +22,13 @@ def solution(request):
     model = LinearRegression()
     model.fit(x_train, y_train)
 
+    #takes the input values and stores to the given variable
     var1 = float(request.GET['n1'])
     var2 = float(request.GET['n2'])
     var3 = float(request.GET['n3'])
     var4 = float(request.GET['n4'])
     var5 = float(request.GET['n5'])
-    pred = model.predict(np.array([var1,var2,var3,var4,var5]).reshape(1,-1))
+    pred = model.predict(np.array([var1,var2,var3,var4,var5]).reshape(1,-1)) #converts 1D arr to 2D arr
     pred = round(pred[0])
 
     price = 'The predicted price of House is $' + str(pred)
