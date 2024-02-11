@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            background-image: url("{% static 'bg.jpg' %}");
+            background-attachment: fixed;
+        }
+
+        h2 {
+            margin-top: 150px;
+            font-size: 40px;
+            color: rgb(1, 1, 1);
+        }
+
+        input[type=submit] {
+            padding: 15px 25px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-color: rgb(156, 7, 156);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+    </style>
+</head>
+
+<body style="text-align: center;">
+    <h2>HousePrice Predictive Model</h2>
+    <form action="predict">
+        <input type="submit" value="Predict">
+    </form>
+</body>
+
+</html>
